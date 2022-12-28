@@ -5,6 +5,7 @@ import requests
 import webbrowser
 from tkinter import messagebox
 
+# window setup
 root = Tk()
 root.title("Coding Tracker")
 root.iconphoto(True, PhotoImage(file="code.png"))
@@ -52,10 +53,15 @@ def change_pixel():
     messagebox.showinfo(message="Pixel updated.")
 
 
+# calender setup
 cal = Calendar(root, selectmode="day", year=TODAY.year, month=TODAY.month, day=TODAY.day)
 cal.grid(row=0, column=0, columnspan=4)
-units = Label(text="Hours/Day:")
+
+# label
+units = Label(text="Hours:")
 units.grid(row=1, column=0, columnspan=2, pady=10, sticky="e")
+
+# entry
 user_in = Entry(width=10)
 user_in.grid(row=1, column=2, sticky="w")
 
@@ -66,13 +72,14 @@ headers = {
     "X-USER-TOKEN": TOKEN
 }
 
+# buttons
 add = Button(text="Add", command=add_pixel)
 add.grid(row=2, column=0, pady=10)
 update = Button(text="Update", command=change_pixel)
 update.grid(row=2, column=1, pady=10, sticky="w")
 delete = Button(text="Delete", command=del_pixel)
 delete.grid(row=2, column=2, pady=10, sticky="w")
-link = Button(text="Show\nJourney", command=open_browser)
+link = Button(text="Show\nGraph", command=open_browser)
 link.grid(row=2, column=3)
 
 root.mainloop()
